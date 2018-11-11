@@ -31,4 +31,12 @@ def table_name_for_insert
 self.class.table_name
 end
 
+def col_names_for_insert
+  column_names = []
+  self.class.column_names.each do |col_name|
+    column_names << col_name unless send(col_name).nil?
+  end
+  column_names.join(', ')
+end
+
 end
