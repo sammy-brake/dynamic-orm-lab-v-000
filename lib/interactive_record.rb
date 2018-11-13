@@ -83,7 +83,7 @@ end
 #     sql << "SELECT * FROM #{table_name} WHERE ? = ?"
 #     col << "#{key}"
 #     val << (value.is_a?(Integer) ? "#{value}" : "'#{value}'")
-# 
+#
 #   end
 #   DB[:conn].execute(sql, col, val)
 #   binding.pry
@@ -92,7 +92,7 @@ end
 def self.find_by(attribute)
   sql = ""
   attribute.each do |key, value|
-    sql << "SELECT * FROM #{table_name} WHERE #{key} = #{val << (value.is_a?(Integer) ? "#{value}" : "'#{value}'")}"
+    sql << "SELECT * FROM #{table_name} WHERE #{key} = #{value.is_a?(Integer) ? "#{value}" : "'#{value}'"}"
   end
   DB[:conn].execute(sql)
 end
