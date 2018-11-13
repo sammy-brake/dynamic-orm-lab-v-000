@@ -86,6 +86,7 @@ def self.find_by(attribute)
 
   end
   DB[:conn].execute(sql, col, val)
+  binding.pry 
 end
 
 end
