@@ -81,6 +81,7 @@ def self.find_by(attribute)
     sql << "SELECT * FROM #{table_name} WHERE #{key} = #{value}"
   end
   DB[:conn].execute(sql)
+  binding.pry 
 end
 
 end
