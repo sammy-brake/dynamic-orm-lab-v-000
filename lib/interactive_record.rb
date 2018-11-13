@@ -82,7 +82,7 @@ def self.find_by(attribute)
   attribute.each do |key, value|
     sql << "SELECT * FROM #{table_name} WHERE ? = ?"
     col << "#{key}"
-    val << "#{value}"
+    val << "'#{value}'"
   end
   DB[:conn].execute(sql, col, val)
 binding.pry
