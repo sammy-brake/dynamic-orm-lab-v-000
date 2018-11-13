@@ -77,6 +77,8 @@ end
 
 def self.find_by(attribute)
   sql = ""
+  col = ''
+  val = ''
   attribute.each do |key, value|
     sql << "SELECT * FROM #{table_name} WHERE #{key} = #{value}"
   end
