@@ -75,18 +75,26 @@ def self.find_by_name(name)
   DB[:conn].execute(sql, name )
 end
 
+# def self.find_by(attribute)
+#   sql = ""
+#   col = ''
+#   val = ''
+#   attribute.each do |key, value|
+#     sql << "SELECT * FROM #{table_name} WHERE ? = ?"
+#     col << "#{key}"
+#     val << (value.is_a?(Integer) ? "#{value}" : "'#{value}'")
+# 
+#   end
+#   DB[:conn].execute(sql, col, val)
+#   binding.pry
+# end
+
 def self.find_by(attribute)
   sql = ""
-  col = ''
-  val = ''
   attribute.each do |key, value|
-    sql << "SELECT * FROM #{table_name} WHERE ? = ?"
-    col << "#{key}"
-    val << (value.is_a?(Integer) ? "#{value}" : "'#{value}'")
-
+    sql << "SELECT * FROM #{table_name} WHERE #{key} = #{val << (value.is_a?(Integer) ? "#{value}" : "'#{value}'")}"
   end
-  DB[:conn].execute(sql, col, val)
-  binding.pry
+  DB[:conn].execute(sql)
 end
 
 end
