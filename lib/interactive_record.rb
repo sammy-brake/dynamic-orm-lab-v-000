@@ -76,11 +76,14 @@ def self.find_by_name(name)
 end
 
 def self.find_by(attribute)
-  sql = ""
+  col_name = ""
+  val = ""
   attribute.each do |key, value|
     sql << "SELECT * FROM #{table_name} WHERE ? = ?"
+    col_name << key
+    val << value
   end
-  DB[:conn].execute(sql, #{key}, #{value})
+  DB[:conn].execute(sql, col_name, val)
 end
 
 end
